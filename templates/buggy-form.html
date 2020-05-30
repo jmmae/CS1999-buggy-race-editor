@@ -5,12 +5,96 @@
 {% block content %}
 
   <h1>Make buggy</h1>
-  <form action="/new" method="post">
-    <label for="qty_wheels">Number of wheels:</label>
-    <input type="text" name="qty_wheels" />
-    <input type="submit" class="button">
-  </form>
+
   <p>
-    <a href="/" class="button">home</a>
+    <a href="/" class="button">Home</a>
+    <br></br>
    </p>
+
+   <p style="color:red">
+    {{ msg_error }}
+    <br></br>
+   </p>
+
+
+  <form action="/new" method="post">
+    <label for="qty_wheels">Number of Wheels (>=4 and must be even):</label>
+    <p><input type="Number" name="qty_wheels" min="4" value="4"/></p>
+
+    <p>
+    <label for="flag_color">Flag Colour:</label>
+    <input type="color" name="flag_color" value="#FFFFFF"/></p>
+
+    <p>
+    <label for="flag_color_secondary">Flag Colour Secondary:</label>
+    <input type="color" name="flag_color_secondary" value="#000000" /></p>
+
+    <p>
+    <label for="flag_pattern">Flag Pattern:</label>
+    <input type="text" name="flag_pattern" value="plain" /></p>
+
+    <p>
+    <label for="power_type">Primary Motive Power Type:</label>
+    <input type="text" name="power_type" value="petrol"/></p>
+
+    <p>
+    <label for="power_units">Primary Motive Power Units:</label>
+    <input type="Number" name="power_units" min="1" value="1"/></p>
+
+    <p>
+    <label for="aux_power_type">Auxiliary Motive Power Type:</label>
+    <input type="text" name="aux_power_type" /></p>
+
+    <p>
+    <label for="aux_power_units">Auxiliary Motive Power Units:</label>
+    <input type="Number" name="aux_power_units" min="0" value="0"/></p>
+
+    <p>
+    <label for="hamster_booster">Hamster Booster:</label>
+    <input type="Number" name="hamster_booster" value="0" /></p>
+
+    <p>
+    <label for="tyres">Tyres Type:</label>
+    <input type="text" name="tyres" value="knobbly"/></p>
+
+    <p>
+    <label for="qty_tyres">Number of Tyres:</label>
+    <input type="Number" name="qty_tyres" min="4" value="4"/></p>
+
+    <p>
+    <label for="armour">Armour Type:</label>
+    <input type="text" name="armour" value="none"/></p>
+
+    <p>
+    <label for="attack">Attack Type:</label>
+    <input type="text" name="attack" value="none"/></p>
+
+    <p>
+    <label for="qty_attacks">Number of Attacks:</label>
+    <input type="Number" name="qty_attacks" min="0" value="0"/></p>
+
+    <p>
+    <label for="fireproof">Is the buggy coated with fire-retardant paint?</label>
+    <input type="Number" name="fireproof" min="0" max="1" value="0"/></p>
+
+    <p>
+    <label for="insulated">Is the buggy protected with a rubber mesh protecting itself from electric lance attacks?</label>
+    <input type="Number" name="insulated" min="0" max="1" value="0"/></p>
+
+    <p>
+    <label for="antibiotic">Is the buggy equipped with with the latest defences against virulent biohazards and nasty scratches?</label>
+    <input type="Number" name="antibiotic" min="0" max="1" value="0"/></p>
+
+    <p>
+    <label for="banging">Is the buggy wired up with some decent lungs for blasting motivational rock during the more demanding sections of the race?</label>
+    <input type="Number" name="banging" min="0" max="1" value="0"/></p>
+
+    <p>
+    <label for="algo">What is your buggy's Race computer algorithm?</label>
+    <input type="text" name="algo" value="steady"/></p>
+
+    <p>
+    <input type="submit" class="button"></p>
+  </form>
+
 {% endblock %}

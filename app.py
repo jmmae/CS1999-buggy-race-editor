@@ -26,12 +26,72 @@ def create_buggy():
     return render_template("buggy-form.html")
   elif request.method == 'POST':
     msg=""
+    qty_wheels = int(request.form['qty_wheels'])
+    qty_tyres = int(request.form['qty_tyres'])
+    check_wheels = qty_wheels % 2
+    if check_wheels > 0:
+      msg_error = f"The Number of Wheels is Not Even, you have put:  {qty_wheels}"
+      return render_template("buggy-form.html", msg_error = msg_error)
+    elif qty_tyres < qty_wheels:
+      msg_error = f"Your Number of Tyres ({qty_tyres}) should be greater or equal to the Number of Wheels ({qty_wheels})"
+      return render_template("buggy-form.html", msg_error = msg_error)
     try:
-      qty_wheels = request.form['qty_wheels']
-      msg = f"qty_wheels={qty_wheels}" 
+      flag_color = request.form['flag_color']
+      msg = f"flag_color={flag_color}"
+      flag_color_secondary = request.form['flag_color_secondary']
+      msg = f"flag_color_secondary={flag_color_secondary}"
+      flag_pattern = request.form['flag_pattern']
+      msg = f"flag_pattern={flag_pattern}"
+      power_type = request.form['power_type']
+      msg = f"power_type={power_type}"
+      power_units = request.form['power_units']
+      msg = f"power_units={power_units}"
+      aux_power_type = request.form['aux_power_type']
+      msg = f"aux_power_type={aux_power_type}"
+      aux_power_units = request.form['aux_power_units']
+      msg = f"aux_power_units={aux_power_units}"
+      hamster_booster = request.form['hamster_booster']
+      msg = f"hamster_booster={hamster_booster}"
+      tyres = request.form['tyres']
+      msg = f"tyres={tyres}"
+      qty_tyres = request.form['qty_tyres']
+      msg = f"qty_tyres={qty_tyres}"
+      armour = request.form['armour']
+      msg = f"armour={armour}"
+      attack = request.form['attack']
+      msg = f"attack={attack}"
+      qty_attacks = request.form['qty_attacks']
+      msg = f"qty_attacks={qty_attacks}"
+      fireproof = request.form['fireproof']
+      msg = f"fireproof={fireproof}"
+      insulated = request.form['insulated']
+      msg = f"insulated={insulated}"
+      antibiotic = request.form['antibiotic']
+      msg = f"antibiotic={antibiotic}"
+      banging = request.form['banging']
+      msg = f"banging={banging}"
+      algo = request.form['algo']
+      msg = f"algo={algo}"
       with sql.connect(DATABASE_FILE) as con:
         cur = con.cursor()
         cur.execute("UPDATE buggies set qty_wheels=? WHERE id=?", (qty_wheels, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set flag_color=? WHERE id=?", (flag_color, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set flag_color_secondary=? WHERE id=?", (flag_color_secondary, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set flag_pattern=? WHERE id=?", (flag_pattern, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set power_type=? WHERE id=?", (power_type, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set power_units=? WHERE id=?", (power_units, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set aux_power_type=? WHERE id=?", (aux_power_type, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set aux_power_units=? WHERE id=?", (aux_power_units, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set hamster_booster=? WHERE id=?", (hamster_booster, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set tyres=? WHERE id=?", (tyres, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set armour=? WHERE id=?", (armour, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set attack=? WHERE id=?", (attack, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set qty_attacks=? WHERE id=?", (qty_attacks, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set fireproof=? WHERE id=?", (fireproof, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set insulated=? WHERE id=?", (insulated, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set antibiotic=? WHERE id=?", (antibiotic, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set banging=? WHERE id=?", (banging, DEFAULT_BUGGY_ID))
+        cur.execute("UPDATE buggies set algo=? WHERE id=?", (algo, DEFAULT_BUGGY_ID))
         con.commit()
         msg = "Record successfully saved"
     except:
@@ -40,6 +100,7 @@ def create_buggy():
     finally:
       con.close()
       return render_template("updated.html", msg = msg)
+
 
 #------------------------------------------------------------
 # a page for displaying the buggy
@@ -50,7 +111,7 @@ def show_buggies():
   con.row_factory = sql.Row
   cur = con.cursor()
   cur.execute("SELECT * FROM buggies")
-  record = cur.fetchone(); 
+  record = cur.fetchone();
   return render_template("buggy.html", buggy = record)
 
 #------------------------------------------------------------
