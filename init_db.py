@@ -44,7 +44,8 @@ con.execute("""
     insulated             INTEGER DEFAULT 0,
     antibiotic            INTEGER DEFAULT 0,
     banging               INTEGER DEFAULT 0,
-    algo                  VARCHAR(20) DEFAULT "steady"
+    algo                  VARCHAR(20) DEFAULT "steady",
+    total_cost            INTEGER
   )
 
 """)

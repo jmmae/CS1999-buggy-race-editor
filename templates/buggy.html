@@ -3,6 +3,11 @@
 {% block content %}
 <h1>Buggy</h1>
 
+<p>
+ <a href="/" class="button">home</a>
+ <br></br>
+</p>
+
 <table>
  <tr>
    <td>ID:</td> <td> {{ buggy['id'] }} </td>
@@ -13,15 +18,23 @@
  </tr>
 
  <tr>
-   <td>Flag Colour:</td> <td> {{ buggy['flag_color'] }} </td>
+   <td>Tyres Type:</td> <td> {{ buggy['tyres'] }} </td>
  </tr>
 
  <tr>
-   <td>Flag Colour Secondary:</td> <td> {{ buggy['flag_color_secondary'] }} </td>
+   <td>Number of Tyres:</td> <td> {{ buggy['qty_tyres'] }} </td>
  </tr>
 
  <tr>
-   <td>Flag Pattern:</td> <td> {{ buggy['flag_pattern'] }} </td>
+   <td>Flag's Colour:</td> <td> {{ buggy['flag_color'] }} </td>
+ </tr>
+
+ <tr>
+   <td>Flag's Colour Secondary:</td> <td> {{ buggy['flag_color_secondary'] }} </td>
+ </tr>
+
+ <tr>
+   <td>Flag's Pattern:</td> <td> {{ buggy['flag_pattern'] }} </td>
  </tr>
 
  <tr>
@@ -45,19 +58,11 @@
  </tr>
 
  <tr>
-   <td>Tyres Type:</td> <td> {{ buggy['tyres'] }} </td>
- </tr>
-
- <tr>
-   <td>Number of Tyres:</td> <td> {{ buggy['qty_tyres'] }} </td>
- </tr>
-
- <tr>
    <td>Armour Type:</td> <td> {{ buggy['armour'] }} </td>
  </tr>
 
  <tr>
-   <td>Attack Type:</td> <td> {{ buggy['attack'] }} </td>
+   <td>Offensive Capability:</td> <td> {{ buggy['attack'] }} </td>
  </tr>
 
  <tr>
@@ -65,28 +70,29 @@
  </tr>
 
  <tr>
-   <td>Is the buggy coated with fire-retardant paint?</td> <td> {{ buggy['fireproof'] }} </td>
+   <td>Fireproof?</td> <td> {{ buggy['fireproof'] }} </td>
  </tr>
 
  <tr>
-   <td>Is the buggy protected with a rubber mesh protecting itself from electric lance attacks?</td> <td> {{ buggy['insulated'] }} </td>
+   <td>Insulated?</td> <td> {{ buggy['insulated'] }} </td>
  </tr>
 
  <tr>
-   <td>Is the buggy equipped with with the latest defences against virulent biohazards and nasty scratches?</td> <td> {{ buggy['antibiotic'] }} </td>
+   <td>Antibiotic?</td> <td> {{ buggy['antibiotic'] }} </td>
  </tr>
 
  <tr>
-   <td>Is the buggy wired up with some decent lungs for blasting motivational rock during the more demanding sections of the race?</td> <td> {{ buggy['banging'] }} </td>
+   <td>Banging sound system?</td> <td> {{ buggy['banging'] }} </td>
  </tr>
 
  <tr>
-   <td>What is your buggy's Race computer algorithm?</td> <td> {{ buggy['algo'] }} </td>
+   <td>Race computer algorithm?</td> <td> {{ buggy['algo'] }} </td>
+ </tr>
+
+ <tr>
+   <td>TOTAL COST OF BUGGY</td> <td> {{ buggy['total_cost'] }} </td>
  </tr>
 
 </table>
-<p>
- <a href="/" class="button">home</a>
-</p>
 
 {% endblock %}
