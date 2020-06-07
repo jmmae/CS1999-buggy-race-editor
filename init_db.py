@@ -45,7 +45,7 @@ con.execute("""
     antibiotic            INTEGER DEFAULT 0,
     banging               INTEGER DEFAULT 0,
     algo                  VARCHAR(20) DEFAULT "steady",
-    total_cost            INTEGER
+    total_cost            INTEGER DEFAULT 64
   )
 
 """)
@@ -62,6 +62,7 @@ if len(rows) == 0:
   print("- Added one 4-wheeled buggy")
 else:
   print("- Found a buggy in the database, nice")
+
 print("- done")
 
 con.close()

@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Buggy</h1>
 
-<p>
- <a href="/" class="button">home</a>
- <br></br>
-</p>
+<h1>Buggies</h1>
+
+<div class="spacer">
+  <a href="/" class="button">Home</a>
+  <a href="/new" class="button">Create New Buggy</a>
+</div>
+
+{% for buggy in buggies %}
 
 <table>
  <tr>
-   <td>ID:</td> <td> {{ buggy['id'] }} </td>
+   <th>Buggy ID:</th> <th> {{ buggy['id'] }} </th>
  </tr>
 
  <tr>
@@ -26,15 +29,70 @@
  </tr>
 
  <tr>
+   <td>Flag: </td>
+   <td>
+     {% if buggy['flag_pattern'] == "plain" %}
+      <svg width="200" height="100">
+       <rect width="200" height="100" style="fill:{{ buggy['flag_color'] }};stroke-width=1;stroke:black" />
+      </svg>
+     {% elif buggy['flag_pattern'] == "vstripe" %}
+      <svg width="200" height="100">
+       <polygon points="0,0 50,0 50,200 0,200" style="fill:{{ buggy['flag_color'] }}" />
+       <polygon points="50,0 100,0 100,100 50,100" style="fill:{{ buggy['flag_color_secondary'] }}" />
+       <polygon points="100,0 150,0 150,200 100,200" style="fill:{{ buggy['flag_color'] }}" />
+       <polygon points="150,0 200,0 200,100 150,200" style="fill:{{ buggy['flag_color_secondary'] }}" />
+      </svg>
+     {% elif buggy['flag_pattern'] == "hstripe" %}
+      <svg width="200" height="100">
+       <polygon points="0,0 200,0 200,25 0,25" style="fill:{{ buggy['flag_color'] }}" />
+       <polygon points="0,25 200,25 200,50 0,50" style="fill:{{ buggy['flag_color_secondary'] }}" />
+       <polygon points="0,50 200,50 200,75 0,75" style="fill:{{ buggy['flag_color'] }}" />
+       <polygon points="0,75 200,75 200,100 0,200" style="fill:{{ buggy['flag_color_secondary'] }}" />
+      </svg>
+     {% elif buggy['flag_pattern'] == "dstripe" %}
+      <svg width="200" height="100">
+       <rect width="200" height="100" style="fill:{{ buggy['flag_color'] }};stroke-width=1;stroke:black" />
+       <polygon points="25,0 50,0 0,50 0,25" style="fill:{{ buggy['flag_color_secondary'] }}" />
+       <polygon points="75,0 100,0 0,100 0,75" style="fill:{{ buggy['flag_color_secondary'] }}" />
+       <polygon points="125,0 150,0 50,100 25,100" style="fill:{{ buggy['flag_color_secondary'] }}" />
+       <polygon points="175,0 200,0 100,100 75,100" style="fill:{{ buggy['flag_color_secondary'] }}" />
+       <polygon points="200,25 200,50 150,100 125,100" style="fill:{{ buggy['flag_color_secondary'] }}" />
+       <polygon points="200,75 200,100 200,100 175,100" style="fill:{{ buggy['flag_color_secondary'] }}" />
+      </svg>
+      {% elif buggy['flag_pattern'] == "checker" %}
+       <svg width="200" height="100">
+        <rect width="200" height="100" style="fill:{{ buggy['flag_color'] }};stroke-width=1;stroke:black" />
+        <polygon points="0,0 50,0 50,50 0,50" style="fill:{{ buggy['flag_color_secondary'] }}" />
+        <polygon points="100,0 150,0 150,50 100,50" style="fill:{{ buggy['flag_color_secondary'] }}" />
+        <polygon points="50,50 100,50 100,100 50,100" style="fill:{{ buggy['flag_color_secondary'] }}" />
+        <polygon points="150,50 200,50 200,100 150,100" style="fill:{{ buggy['flag_color_secondary'] }}" />
+       </svg>
+      {% elif buggy['flag_pattern'] == "spot" %}
+       <svg width="200" height="100">
+        <rect width="200" height="100" style="fill:{{ buggy['flag_color'] }};stroke-width=1;stroke:black" />
+        <circle cx="25" cy="30" r="15" fill="{{ buggy['flag_color_secondary'] }}" />
+        <circle cx="75" cy="30" r="15" fill="{{ buggy['flag_color_secondary'] }}" />
+        <circle cx="125" cy="30" r="15" fill="{{ buggy['flag_color_secondary'] }}" />
+        <circle cx="175" cy="30" r="15" fill="{{ buggy['flag_color_secondary'] }}" />
+        <circle cx="25" cy="70" r="15" fill="{{ buggy['flag_color_secondary'] }}" />
+        <circle cx="75" cy="70" r="15" fill="{{ buggy['flag_color_secondary'] }}" />
+        <circle cx="125" cy="70" r="15" fill="{{ buggy['flag_color_secondary'] }}" />
+        <circle cx="175" cy="70" r="15" fill="{{ buggy['flag_color_secondary'] }}" />
+       </svg>
+     {% endif %}
+   </td>
+ </tr>
+
+ <tr>
+   <td>Flag's Pattern:</td> <td> {{ buggy['flag_pattern'] }} </td>
+ </tr>
+
+ <tr>
    <td>Flag's Colour:</td> <td> {{ buggy['flag_color'] }} </td>
  </tr>
 
  <tr>
    <td>Flag's Colour Secondary:</td> <td> {{ buggy['flag_color_secondary'] }} </td>
- </tr>
-
- <tr>
-   <td>Flag's Pattern:</td> <td> {{ buggy['flag_pattern'] }} </td>
  </tr>
 
  <tr>
@@ -70,19 +128,35 @@
  </tr>
 
  <tr>
-   <td>Fireproof?</td> <td> {{ buggy['fireproof'] }} </td>
+   <td>Fireproof?</td>
+   <td>{% if buggy['fireproof'] == 1 %} Yes
+       {% elif buggy['fireproof'] == 0 %} No
+       {% endif %}
+   </td>
  </tr>
 
  <tr>
-   <td>Insulated?</td> <td> {{ buggy['insulated'] }} </td>
+   <td>Insulated?</td>
+   <td>{% if buggy['insulated'] == 1 %} Yes
+       {% elif buggy['insulated'] == 0 %} No
+       {% endif %}
+   </td>
  </tr>
 
  <tr>
-   <td>Antibiotic?</td> <td> {{ buggy['antibiotic'] }} </td>
+   <td>Antibiotic?</td>
+   <td>{% if buggy['antibiotic'] == 1 %} Yes
+       {% elif buggy['antibiotic'] == 0 %} No
+       {% endif %}
+   </td>
  </tr>
 
  <tr>
-   <td>Banging sound system?</td> <td> {{ buggy['banging'] }} </td>
+   <td>Banging sound system?</td>
+   <td>{% if buggy['banging'] == 1 %} Yes
+       {% elif buggy['banging'] == 0 %} No
+       {% endif %}
+   </td>
  </tr>
 
  <tr>
@@ -90,9 +164,24 @@
  </tr>
 
  <tr>
-   <td>TOTAL COST OF BUGGY</td> <td> {{ buggy['total_cost'] }} </td>
+   <th>TOTAL COST OF BUGGY</th> <th> {{ buggy['total_cost'] }} </th>
  </tr>
 
+ <tr>
+   <td colspan="2"> <a href="/edit/{{ buggy['id'] }}">Edit Buggy #{{ buggy['id'] }}</a></td>
+ </tr>
+
+ <tr>
+   <td colspan="2"> <a href="/delete/{{ buggy['id'] }}">Delete Buggy #{{ buggy['id'] }}</a></td>
+ </tr>
+
+ <tr>
+   <td colspan="2"> <a href="/json/{{ buggy['id'] }}">Get JSON for Buggy #{{ buggy['id'] }}</a></td>
+ </tr>
+
+
 </table>
+
+{% endfor %}
 
 {% endblock %}
