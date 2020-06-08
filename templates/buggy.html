@@ -7,11 +7,13 @@
 <div class="spacer">
   <a href="/" class="button">Home</a>
   <a href="/new" class="button">Create New Buggy</a>
+  <a href="/default_buggy" class="button">Create Buggy With Default Values</a>
+  <a href="/delete_all" class="button">Delete All Buggies</a>
 </div>
 
 {% for buggy in buggies %}
 
-<table>
+<table class="center">
  <tr>
    <th>Buggy ID:</th> <th> {{ buggy['id'] }} </th>
  </tr>
@@ -164,7 +166,7 @@
  </tr>
 
  <tr>
-   <th>TOTAL COST OF BUGGY</th> <th> {{ buggy['total_cost'] }} </th>
+   <th>TOTAL COST OF BUGGY</th> <th>{{ buggy['total_cost'] }} </th>
  </tr>
 
  <tr>

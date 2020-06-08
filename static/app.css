@@ -10,8 +10,8 @@ body {
   color: #000000;
   background: repeating-linear-gradient(
     45deg,
-    #ffffee,
-    #ffffee 2em,
+    #E0BBE4,
+    #E0BBE4 2em,
     #eeeeee 2em,
     #eeeeee 4em
   );
@@ -21,12 +21,19 @@ body {
   padding: 1em;
   background: white;
   margin: 0 0 0 3em;
+  background-color: pink;
 }
 h1 {
-  margin: 0 0 1em 0;
+  margin: 1em 0 1em 0;
+  text-align: center;
+  font-size: 3em;
 }
 p {
   margin: 1em 0;
+  text-align: center;
+}
+.pLeft{
+  text-align: left;
 }
 a.button, input.button {
   border:1px solid black;
@@ -39,15 +46,16 @@ a.button, input.button {
   box-shadow: 5px 5px 5px #999999;
 }
 a.button:hover {
-  background-color: deeppink;
-  color: white;
+  background-color: lavender;
+  color: black;
+  font-weight: bold;
 }
 input {
   padding: 0.5em;
   font-size:80%;
   font-weight: 700;
   text-align: center;
-  background-color: pink;
+  background-color: lavender;
   border: 1px solid #aaa;
 }
 input.button {
@@ -65,8 +73,12 @@ table td, table th {
   text-align: center;
 }
 th {
-  background-color: #FF1493;
-  color: white;
+  background-color: lavender;
+  color: black;
+}
+table.center{
+  margin-left: auto;
+  margin-right: auto;
 }
 .spacer {
   margin: 3em 0;
@@ -76,6 +88,9 @@ select {
   font-size:80%;
   font-weight: 700;
   text-align: center;
-  background-color: pink;
+  background-color: lavender;
   border: 1px solid #aaa;
+}
+div{
+  text-align: center;
 }

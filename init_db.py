@@ -45,12 +45,52 @@ con.execute("""
     antibiotic            INTEGER DEFAULT 0,
     banging               INTEGER DEFAULT 0,
     algo                  VARCHAR(20) DEFAULT "steady",
-    total_cost            INTEGER DEFAULT 64
+    total_cost            INTEGER
+  )
+
+""")
+
+con.execute("""
+
+  CREATE TABLE IF NOT EXISTS costs (
+    cost_set_id             INTEGER PRIMARY KEY,
+    hamster_booster_cost    INTEGER DEFAULT 5,
+    fireproof_cost          INTEGER DEFAULT 70,
+    insulated_cost          INTEGER DEFAULT 100,
+    antibiotic_cost         INTEGER DEFAULT 90,
+    banging_cost            INTEGER DEFAULT 42,
+    petrol_cost             INTEGER DEFAULT 4,
+    fusion_cost             INTEGER DEFAULT 400,
+    steam_cost              INTEGER DEFAULT 3,
+    bio_cost                INTEGER DEFAULT 5,
+    electric_cost           INTEGER DEFAULT 20,
+    rocket_cost             INTEGER DEFAULT 16,
+    hamster_cost            INTEGER DEFAULT 3,
+    thermo_cost             INTEGER DEFAULT 300,
+    solar_cost              INTEGER DEFAULT 40,
+    wind_cost               INTEGER DEFAULT 20,
+	tyres_knobbly_cost	    INTEGER DEFAULT 15,
+	tyres_slick_cost		INTEGER DEFAULT 10,
+	tyres_steelband_cost	INTEGER DEFAULT 20,
+	tyres_reactive_cost		INTEGER DEFAULT 40,
+	tyres_maglev_cost		INTEGER DEFAULT 50,
+    armour_none_cost        INTEGER DEFAULT 0,
+    armour_wood_cost        INTEGER DEFAULT 40,
+    armour_aluminium_cost   INTEGER DEFAULT 200,
+    armour_thinsteel_cost   INTEGER DEFAULT 100,
+    armour_thicksteel_cost  INTEGER DEFAULT 200,
+    armour_titanium_cost    INTEGER DEFAULT 290,
+    attack_none_cost        INTEGER DEFAULT 0,
+    attack_spike_cost       INTEGER DEFAULT 5,
+    attack_flame_cost       INTEGER DEFAULT 20,
+    attack_charge_cost      INTEGER DEFAULT 28,
+    attack_biohazard_cost   INTEGER DEFAULT 30
   )
 
 """)
 
 print("- Table \"buggies\" exists OK")
+print("- Table \"costs\" exists OK")
 
 cur = con.cursor()
 
@@ -62,6 +102,15 @@ if len(rows) == 0:
   print("- Added one 4-wheeled buggy")
 else:
   print("- Found a buggy in the database, nice")
+
+cur.execute("SELECT * FROM costs LIMIT 1")
+rows = cur.fetchall()
+if len(rows) == 0:
+  cur.execute("INSERT INTO costs (hamster_booster_cost) VALUES (5)")
+  con.commit()
+  print("- Added default cost")
+else:
+  print("- Found the default cost in the database, nice")
 
 print("- done")
 

@@ -19,7 +19,7 @@
 
   <form action="/new" method="post">
 
-  <table>
+  <table class="center">
 
    <tr>
     <th>Buggy ID:</th> <th> {{ buggy['id'] }} </th>
@@ -76,16 +76,16 @@
    <td><label for="power_type">Primary Motive Power Type (Use 1 unit only for non-consumable): </label></td>
    <td><select id="power_type" name="power_type">
      <option value="" {% if buggy['power_type'] == None %} selected {% endif %}></option>
-     <option value="petrol" {% if buggy['power_type'] == "petrol" %} selected {% endif %}>Petrol</option>
-     <option value="fusion" {% if buggy['power_type'] == "fusion" %} selected {% endif %}>Fusion (non-consumable)</option>
-     <option value="steam" {% if buggy['power_type'] == "steam" %} selected {% endif %}>Steam</option>
-     <option value="bio" {% if buggy['power_type'] == "bio" %} selected {% endif %}>Bio</option>
-     <option value="electric" {% if buggy['power_type'] == "electric" %} selected {% endif %}>Electric</option>
-     <option value="rocket" {% if buggy['power_type'] == "rocket" %} selected {% endif %}>Rocket</option>
+     <option value="petrol" {% if buggy['power_type'] == "petrol" %} selected {% endif %}>Petroleum-fuelled internal combustion engine</option>
+     <option value="fusion" {% if buggy['power_type'] == "fusion" %} selected {% endif %}>Fusion reactor (non-consumable)</option>
+     <option value="steam" {% if buggy['power_type'] == "steam" %} selected {% endif %}>Steam engine</option>
+     <option value="bio" {% if buggy['power_type'] == "bio" %} selected {% endif %}>Bio-fuelled internal combustion engine</option>
+     <option value="electric" {% if buggy['power_type'] == "electric" %} selected {% endif %}>Lithium-ion battery</option>
+     <option value="rocket" {% if buggy['power_type'] == "rocket" %} selected {% endif %}>Rocket fuel</option>
      <option value="hamster" {% if buggy['power_type'] == "hamster" %} selected {% endif %}>Hamster</option>
-     <option value="thermo" {% if buggy['power_type'] == "thermo" %} selected {% endif %}>Thermo (non-consumable)</option>
-     <option value="solar" {% if buggy['power_type'] == "solar" %} selected {% endif %}>Solar (non-consumable)</option>
-     <option value="wind" {% if buggy['power_type'] == "wind" %} selected {% endif %}>Wind (non-consumable)</option>
+     <option value="thermo" {% if buggy['power_type'] == "thermo" %} selected {% endif %}>Thermonuclear reactor (non-consumable)</option>
+     <option value="solar" {% if buggy['power_type'] == "solar" %} selected {% endif %}>Bank of solar panels (non-consumable)</option>
+     <option value="wind" {% if buggy['power_type'] == "wind" %} selected {% endif %}>Sailing rig (non-consumable)</option>
    </select></td>
    </tr>
 
@@ -98,16 +98,16 @@
    <td><label for="aux_power_type">Auxiliary Motive Power Type (Use 1 unit only for non-consumable): </label></td>
    <td><select id="aux_power_type" name="aux_power_type">
      <option value="" {% if buggy['aux_power_type'] == None %} selected {% endif %}>None</option>
-     <option value="petrol" {% if buggy['aux_power_type'] == "petrol" %} selected {% endif %}>Petrol</option>
-     <option value="fusion" {% if buggy['aux_power_type'] == "fusion" %} selected {% endif %}>Fusion (non-consumable)</option>
-     <option value="steam" {% if buggy['aux_power_type'] == "steam" %} selected {% endif %}>Steam</option>
-     <option value="bio" {% if buggy['aux_power_type'] == "bio" %} selected {% endif %}>Bio</option>
-     <option value="electric" {% if buggy['aux_power_type'] == "electric" %} selected {% endif %}>Electric</option>
-     <option value="rocket" {% if buggy['aux_power_type'] == "rocket" %} selected {% endif %}>Rocket</option>
+     <option value="petrol" {% if buggy['aux_power_type'] == "petrol" %} selected {% endif %}>Petroleum-fuelled internal combustion engine</option>
+     <option value="fusion" {% if buggy['aux_power_type'] == "fusion" %} selected {% endif %}>Fusion reactor (non-consumable)</option>
+     <option value="steam" {% if buggy['aux_power_type'] == "steam" %} selected {% endif %}>Steam engine</option>
+     <option value="bio" {% if buggy['aux_power_type'] == "bio" %} selected {% endif %}>Bio-fuelled internal combustion engine</option>
+     <option value="electric" {% if buggy['aux_power_type'] == "electric" %} selected {% endif %}>Lithium-ion battery</option>
+     <option value="rocket" {% if buggy['aux_power_type'] == "rocket" %} selected {% endif %}>Rocket fuel</option>
      <option value="hamster" {% if buggy['aux_power_type'] == "hamster" %} selected {% endif %}>Hamster</option>
-     <option value="thermo" {% if buggy['aux_power_type'] == "thermo" %} selected {% endif %}>Thermo (non-consumable)</option>
-     <option value="solar" {% if buggy['aux_power_type'] == "solar" %} selected {% endif %}>Solar (non-consumable)</option>
-     <option value="wind" {% if buggy['aux_power_type'] == "wind" %} selected {% endif %}>Wind (non-consumable)</option>
+     <option value="thermo" {% if buggy['aux_power_type'] == "thermo" %} selected {% endif %}>Thermonuclear reactor (non-consumable)</option>
+     <option value="solar" {% if buggy['aux_power_type'] == "solar" %} selected {% endif %}>Bank of solar panels (non-consumable)</option>
+     <option value="wind" {% if buggy['aux_power_type'] == "wind" %} selected {% endif %}>Sailing rig (non-consumable)</option>
    </select></td>
    </tr>
 
@@ -118,7 +118,7 @@
 
    <tr>
    <td><label for="hamster_booster">Hamster Booster (Only effective if you have hamster motive power):</label></td>
-   <td><input type="Number" name="hamster_booster" value="{{ buggy['hamster_booster'] }}"/></td>
+   <td><input type="Number" name="hamster_booster" min="0" value="{{ buggy['hamster_booster'] }}"/></td>
    </tr>
 
    <tr>
@@ -188,7 +188,7 @@
    </tr>
 
    <tr>
-   <td><label for="algo">Race computer algorithm: </label></td>
+   <td><label for="algo">Race computer algorithm (If no offensive capability, then only select defensive or steady): </label></td>
    <td><select id="algo" name="algo">
      <option value="" {% if buggy['algo'] == None %} selected {% endif %}></option>
      <option value="steady" {% if buggy['algo'] == "steady" %} selected {% endif %}>Steady</option>
@@ -200,12 +200,22 @@
    </select></td>
    </tr>
 
+   <tr>
+     <th><label for="total_cost">Current Total Cost of Buggy (Snapshot before change)</label></th>
+     <th><input disabled type="Number" name="total_cost" value="{{ buggy['total_cost'] }}"/></th>
+   </tr>
+
+   <tr>
+     <th><label for="target_cost">TARGET COST (Note: Will change all Values to match Target Cost)</label></th>
+     <th><input type="Number" name="target_cost" value="{{ buggy['target_cost'] }}"/></th>
+   </tr>
+
   </table>
 
-    <p>
+  <div class="spacer">
     <input type="submit" class="button" value="Submit Buggy">
     <input type="submit" class="button" formaction="/autofill" value="Auto Fill Empty Inputs">
-    </p>
+  </div>
   </form>
 
 {% endblock %}

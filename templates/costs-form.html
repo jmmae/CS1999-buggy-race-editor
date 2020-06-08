@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Costs Summary Table</h1>
+
+<div class="spacer">
+  <a href="/" class="button">Home</a>
+  <a href="/buggy" class="button">Show Buggies</a>
+  <a href="/new" class="button">Create New Buggy</a>
+</div>
+
+<form action="/costs" method="post">
+
+<table class="center">
+
+ <tr>
+  <th colspan="2">Common Item Costs Table (Cost/Unit)</th>
+ </tr>
+
+ <tr>
+ <td><label for="hamster_booster_cost">Hamster Booster</label></td>
+ <td><input required type="Number" min="0" name="hamster_booster_cost" value="{{ costs['hamster_booster_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="fireproof_cost">Fireproof</label></td>
+ <td><input required type="Number" min="0" name="fireproof_cost" value="{{ costs['fireproof_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="insulated_cost">Insulated</label></td>
+ <td><input required type="Number" min="0" name="insulated_cost" value="{{ costs['insulated_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="antibiotic_cost">Antibiotic</label></td>
+ <td><input required type="Number" min="0" name="antibiotic_cost" value="{{ costs['antibiotic_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="banging_cost">Banging sound system</label></td>
+ <td><input required type="Number" min="0" name="banging_cost" value="{{ costs['banging_cost'] }}"/></td>
+ </tr>
+
+</table>
+
+<table class="center">
+
+ <tr>
+  <th colspan="2">Motive Power Costs Table (Cost/Unit)</th>
+ </tr>
+
+ <tr>
+ <td><label for="petrol_cost">Petroleum-fuelled internal combustion engine</label></td>
+ <td><input required type="Number" min="0" name="petrol_cost" value="{{ costs['petrol_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="fusion_cost">Fusion reactor (non-consumable)</label></td>
+ <td><input required type="Number" min="0" name="fusion_cost" value="{{ costs['fireproof_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="steam_cost">Steam engine</label></td>
+ <td><input required type="Number" min="0" name="steam_cost" value="{{ costs['steam_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="bio_cost">Bio-fuelled internal combustion engine</label></td>
+ <td><input required type="Number" min="0" name="bio_cost" value="{{ costs['bio_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="electric_cost">Lithium-ion battery</label></td>
+ <td><input required type="Number" min="0" name="electric_cost" value="{{ costs['electric_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="rocket_cost">Rocket fuel</label></td>
+ <td><input required type="Number" min="0" name="rocket_cost" value="{{ costs['rocket_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="hamster_cost">Hamster</label></td>
+ <td><input required type="Number" min="0" name="hamster_cost" value="{{ costs['hamster_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="thermo_cost">Thermonuclear reactor (non-consumable)</label></td>
+ <td><input required type="Number" min="0" name="thermo_cost" value="{{ costs['thermo_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="solar_cost">Bank of solar panels (non-consumable)</label></td>
+ <td><input required type="Number" min="0" name="solar_cost" value="{{ costs['solar_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="wind_cost">Sailing rig (non-consumable)</label></td>
+ <td><input required type="Number" min="0" name="wind_cost" value="{{ costs['wind_cost'] }}"/></td>
+ </tr>
+
+</table>
+
+<table class="center">
+
+ <tr>
+  <th colspan="2">Types of Tyre Costs Table (Cost/Unit)</th>
+ </tr>
+
+ <tr>
+ <td><label for="tyres_knobbly_cost">Knobbly</label></td>
+ <td><input required type="Number" min="0" name="tyres_knobbly_cost" value="{{ costs['tyres_knobbly_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="tyres_slick_cost">Slick</label></td>
+ <td><input required type="Number" min="0" name="tyres_slick_cost" value="{{ costs['tyres_slick_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="tyres_steelband_cost">Steelband</label></td>
+ <td><input required type="Number" min="0" name="tyres_steelband_cost" value="{{ costs['tyres_steelband_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="tyres_reactive_cost">Reactive</label></td>
+ <td><input required type="Number" min="0" name="tyres_reactive_cost" value="{{ costs['tyres_reactive_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="tyres_maglev_cost">Maglev</label></td>
+ <td><input required type="Number" min="0" name="tyres_maglev_cost" value="{{ costs['tyres_maglev_cost'] }}"/></td>
+ </tr>
+ <tr>
+
+</table>
+
+<table class="center">
+
+ <tr>
+  <th colspan="2">Types of Amour Costs Table (Cost/Unit)</th>
+ </tr>
+
+ <tr>
+ <td><label for="armour_none_cost">None</label></td>
+ <td><input required type="Number" min="0" name="armour_none_cost" value="{{ costs['armour_none_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="armour_wood_cost">Wood</label></td>
+ <td><input required type="Number" min="0" name="armour_wood_cost" value="{{ costs['armour_wood_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="armour_aluminium_cost">Aluminium</label></td>
+ <td><input required type="Number" min="0" name="armour_aluminium_cost" value="{{ costs['armour_aluminium_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="armour_thinsteel_cost">Thinsteel</label></td>
+ <td><input required type="Number" min="0" name="armour_thinsteel_cost" value="{{ costs['armour_thinsteel_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="armour_thicksteel_cost">Thicksteel</label></td>
+ <td><input required type="Number" min="0" name="armour_thicksteel_cost" value="{{ costs['armour_thicksteel_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="armour_titanium_cost">Titanium</label></td>
+ <td><input required type="Number" min="0" name="armour_titanium_cost" value="{{ costs['armour_titanium_cost'] }}"/></td>
+ </tr>
+
+</table>
+
+<table class="center">
+
+ <tr>
+  <th colspan="2">Offensive Capability Costs Table (Cost/Unit)</th>
+ </tr>
+
+ <tr>
+ <td><label for="attack_none_cost">None</label></td>
+ <td><input required type="Number" min="0" name="attack_none_cost" value="{{ costs['attack_none_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="attack_spike_cost">Spike</label></td>
+ <td><input required type="Number" min="0" name="attack_spike_cost" value="{{ costs['attack_spike_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="attack_flame_cost">Flame</label></td>
+ <td><input required type="Number" min="0" name="attack_flame_cost" value="{{ costs['attack_flame_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="attack_charge_cost">Charge</label></td>
+ <td><input required type="Number" min="0" name="attack_charge_cost" value="{{ costs['attack_charge_cost'] }}"/></td>
+ </tr>
+ <tr>
+ <td><label for="attack_biohazard_cost">Biohazard</label></td>
+ <td><input required type="Number" min="0" name="attack_biohazard_cost" value="{{ costs['attack_biohazard_cost'] }}"/></td>
+ </tr>
+
+</table>
+
+
+<div class="spacer">
+  <input type="submit" class="button" value="Update Costs">
+  <input type="submit" class="button" formaction="/costs_default" value="Set Costs Back to Default Values">
+</div>
+
+</form>
+
+{% endblock %}

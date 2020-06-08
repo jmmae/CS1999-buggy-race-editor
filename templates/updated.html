@@ -2,13 +2,67 @@
 
 {% block content %}
 
-  <h1>Updated Buggy</h1>
+  <h1>Buggy Update Status</h1>
 
-  <p>
-    {{ msg }}
+  <div class="spacer">
+    <a href="/" class="button">Home</a>
+    <a href="/new" class="button">Create New Buggy</a>
+    <a href="/buggy" class="button">Show Buggies</a>
+    <a href="/costs" class="button">Shows Costs Summary Table</a>
+  </div>
+
+  <div>
+    <b>{{ msg }}</b>
+  </div>
+
+  <p style="color:darkred">
+    {{ msg_wheels }}
+  <p style="color:darkred">
+    {{ msg_tyres_type }}
+  <p style="color:darkred">
+    {{ msg_tyres }}
+  <p style="color:darkred">
+    {{ msg_flag_pattern }}
+  <p style="color:darkred">
+    {{ msg_flag_color }}
+  <p style="color:darkred">
+    {{ msg_flag_color_secondary }}
+  <p style="color:darkred">
+    {{ msg_power }}
+  <p style="color:darkred">
+    {{ msg_power_units }}
+  <p style="color:darkred">
+    {{ msg_auxiliary }}
+  <p style="color:darkred">
+    {{ msg_auxiliary2 }}
+  <p style="color:darkred">
+    {{ msg_aux_power_units }}
+  <p style="color:darkred">
+    {{ msg_hamster_booster }}
+  <p style="color:darkred">
+    {{ msg_armour }}
+  <p style="color:darkred">
+    {{ msg_attack }}
+  <p style="color:darkred">
+    {{ msg_qty_attacks }}
+  <p style="color:darkred">
+    {{ msg_fireproof }}
+  <p style="color:darkred">
+    {{ msg_insulated }}
+  <p style="color:darkred">
+    {{ msg_antibiotic }}
+  <p style="color:darkred">
+    {{ msg_banging }}
+  <p style="color:darkred">
+    {{ msg_algo }}
+  <p style="color:darkred">
+    {{ msg_target_cost }}
+  <p style="color:darkred">
+    {{ msg_attempt }}
   </p>
-  <p>
-    <a href="/" class="button">home</a>
-  </p>
+
+  <div class="spacer">
+    <input type="button" value="Go Back Previous Page" onclick="history.back()" class="button">
+  </div>
 
 {% endblock %}
