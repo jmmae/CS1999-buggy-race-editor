@@ -78,7 +78,7 @@ def create_buggy():
     flag_color = request.form['flag_color']
     flag_color_secondary = request.form['flag_color_secondary']
     if flag_pattern == "":
-      msg_flag_pattern = f"Flag's Patter Error:  It is blank, please select from the drop-down."
+      msg_flag_pattern = f"Flag's Pattern Error:  It is blank, please select from the drop-down."
     elif (flag_pattern != "plain" and flag_color_secondary==flag_color):
       msg_flag_color_secondary = f"Flag's Patter Error:  Every Flag Pattern except Plain needs two colours (a primary colour, and a secondary)."
 

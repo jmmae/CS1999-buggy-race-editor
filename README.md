@@ -114,7 +114,7 @@ subsequent python commands operate within the scope of this environment
 Activate the virtual environment. On Windows, do:
 
     .\venv\Scripts\activate
-    
+
 On Linux or Mac:
 
     source venv/bin/activate
@@ -143,7 +143,7 @@ Then, if you haven't done so already, activate the virtual environment:
 Activate the virtual environment. On Windows, do:
 
     .\venv\Scripts\activate
-    
+
 On Linux or Mac:
 
     source venv/bin/activate
@@ -184,8 +184,9 @@ If you've finished, you can deactivate the virtual environment:
 
 You're done!
 
-
 ---
 
 *RHUL CS1999... that's a course number, not a year* ;-)
+
+____
 

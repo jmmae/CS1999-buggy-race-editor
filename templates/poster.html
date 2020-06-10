@@ -45,10 +45,11 @@
 <h1>Task Summary</h1>
   <div class="task">
     <h2>0-GET</h2>
-    <p>
-      I forked the repo on GitHub and then used <code>git clone</code> to make a local copy.
+    <p class="pLeft"><b>Summary:</b>
+      I forked the repo on GitHub and then used <code>git clone</code> to make a local copy. I also downloaded Atom
+      in order to work on the proect on my Mac - this allowed me to make the changed needed to work on the tasks.
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       Once the repo was on my own machine I was able to commit changes to version control
       as I went along, and I pushed back up to my GitHub repo after I made significant changes to my webserver.
       I followed GitHub's instructions and set up a SSH key so I didn't need to enter
@@ -58,51 +59,104 @@
 
   <div class="task">
     <h2>0-RUN Get app running and view it in a browser</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
-    </p>
-    <p>
-      <!-- sentence(s) on anything interesting/incomplete you did -->
+      First, I used <code>git clone</code> to clone the original zip file from github.
+      I installed venv onto my machine by using <code>python3 -m venv venv</code> and I was able to access it using
+      <code>source venv/bin/activate</code> after I <code>cd</code> into the CS1999-buggy-race-editor file
+      in the terminal. Then, by <code>pip</code> installing flask into the venv, I entered the development
+      mode by using <code>FLASK_ENV=development python3 app.py</code>
+      which allowed me to run the website using the local host website "http://0.0.0.0:5000/" or "http://localhost:5000".
     </p>
   </div>
 
   <div class="task">
     <h2>0-CHANGE Make a change to a template and see it appear</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      To do this task, I first added "Hello World" onto the end of "My Buggy Editor" in the index.html.
+      I then refreshed the already loaded page (http://0.0.0.0:5000/) from the previous task and waited
+      for the change to be made to the title. I confirmed that "Hello World" was printed after the
+      original title,  so at this point, I knew that the git was set up properly and I that I was editing
+      the correct file.
     </p>
-    <p>
-      <!-- sentence(s) on anything interesting/incomplete you did -->
+    <p class="pLeft">
+      After this, I used the git status command to check which files I'd updated. Then I used <code>git add</code> to add
+      these files onto the stage, ready to be committed. Then I used <code>git commit -m "make a change to a template and see it appear"</code>
+      to save the changes to my local depository. Finally, I used <code>git push</code> to upload the saved changes to github.
     </p>
   </div>
 
   <div class="task">
     <h2>1-ADD Add more data to the form</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      <ul class="pLeft">
+        <li>First, I added all of the data onto the init_db.py SQL so all of the
+            items would be added into the database in which I could write to later on.</li>
+        <li>Then, I added each item to buggy_form.html so the user could
+            enter a value to be added to the buggy table.</li>
+        <li>Then, I added each item to buggy.html so the inputted value from buggy_form.html
+            could be seen in a table format.</li>
+        <li>Finally, I added each item to app.py so it could request the data form the buggy_form.html.</li>
+      </ul>
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      All items were successfully added to the tables however, there were no defined rules on the inputs.
+      For example, you could input a string for the number of wheels. This issue was dealt with in later tasks.
     </p>
   </div>
 
   <div class="task">
     <h2>1-VALID Add basic data validation</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      <ul class="pLeft">
+        <li>For basic validation, I made sure that all the items that needed to be integers, were integers. I used the
+            <code>.isdigit()</code> function to check whether the inputted value was a digit/integer in the app.py.</li>
+        <li>For the boolean items (fireproof, insulated, antibiotic and banging sound system), I translated this True or False statement
+            into 1 and 0 respectively in the buggy_form.html. Then I took this translated value/string and converted
+            it completely into a integer using the <code>int</code> function which read from the buggy form and from the correct item.
+        <li>I created a statement where I set all item messages to "''". This is used to check that if the user has not inputted anything
+            or left the input box blank, then the program will know how to appropriately respond.</li>
+        <li>Finally, I created a large <code>if</code> statement which will check all of the validation and compare it to the inputs.
+            If there is an error message to be outputted, the <code>render</code> statement will allow this message to be seen.</li>
+      </ul>
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      I first ran into a problem when trying to upload the JSON to the race on the buggy server website, I tried to use true and false for the booleans,
+      then after looking through the error, I realised that I needed to be working in integers as HTML doesn't allow the value "true" or "false" - thus,
+      I had to translate the true/false into 1/0. I then encountered another error in the large if statement that combined all of the errors,
+      at first I used <code>if not qty_wheels.isdigit()</code> which caused an error to say that "'int' object has no sttribute 'isdigit'",
+      thus, I used  <code>qty_wheels == ""</code> instead which fixed the problem. Finally, the most challenging problem I ran
+      into was initially finding a way to combine all of the errors - I eventually tried using a large if statement with
+      all of the items and messages for each variable which would then be connected to the updated.html to show on the page.
     </p>
   </div>
 
   <div class="task">
     <h2>1-STYLE Style your editor just how you like it</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      <ul class="pLeft">
+        <li>For styling, I was able to change the background colour of the webserver to a pink colour. I then decided to centre the majority
+            website, so I centred all of the titles, buttons, tables and error messages. I made this decision because I feel like if
+            the information was in the centre, it would be more eyecatching and thus an easier website to use as everything is easily visable.</li>
+        <li>I added the original picture from the buggy server onto the home page of my web server, this is to link the two together visually.
+            I added the picture by saving it to the static folder and then refering to it using the <code>img src="static/rene-buggy-2.png"</code> tag.</li>
+        <li>I also changed the colours of the buttons, input boxes and the table headers to lavender.</li>
+        <li>I made the titles larger and allowed for more space inbetween it so the titles can be seen more clearer.</li>
+        <li>Finally, I made the buttons larger and bolder when you hover over them.</li>
+      </ul>
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      In some instances, I prefered that writing to be on the left, like in this Task Summary. I realised I had
+      to make a class that will allow me to put this writing to the left so I created the <code>.pLeft</code> class in which it had
+      <code>text-align: left;</code> inside, which allowed me to pick and choose which <code>p</code> tags I'd like to put on the left instead of
+      the centre setting I had for the rest of the program.
     </p>
   </div>
 
@@ -118,11 +172,30 @@
 
   <div class="task">
     <h2>2-FORM Make the form better</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      For this task, I thought that a good way in making the form presentable and easier to read
+      is to have the user enter their inputs onto a table as opposed to having all the categories just laid under
+      each other as it looks disorganised and messy. This way, it is clear what the user has to fill out as the input boxes
+      are now in a neat table, all clearly labelled. The errors are displayed in the middle of the screen where they appear
+      in the order they come. For example, if you have multiple errors, the program will tell the user what errors they have encountered
+      and their inputs will not be submitted into the a new buggy until all of the rules are met.
     </p>
-    <p>
+    <p class="pLeft">
+      I also added additional buttons which allows the user to easily transition to the pages they want. The buttons are accurately
+      names to do the function they say, for example, the "Create New Buggy" button displays the table for the user to input
+      the values they want. Another feature I have added is the "£" that is displayed in the table whenever cost is involved -
+      this allows the user to know the currency.
+    </p>
+    <p class="pLeft">
+      I have also included a drop down box feature where instead of the users typing in their string inputs, the form will present
+      the user with drop down boxes with the valid options - this is useful as it is harder to make a mistake when choosing
+      from an array of preset answers.
+    </p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      It might've been a good idea to have all the errors displayed next to where the error actually occurred in a third column
+      of the buggy form table while retaining the original inputs and clearing the input boxes that contained the error.
     </p>
   </div>
 
@@ -130,19 +203,57 @@
     <h2>2-COST Calculate and save the game cost of the buggy</h2>
     <p>
       <!-- sentence on _how_ you fixed it -->
+      Originally, I put a fixed cost (default) in the app.py (if petrol is 4 * power unit), then realised
+      based from specs, the cost can be changed anytime, in 24 hours notice. Thuus, I decided to create a costs table
+      inside the database.
     </p>
     <p>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      "+10% for every wheel your buggy has over four"
     </p>
   </div>
 
   <div class="task">
     <h2>2-RULES Add validation according to the game rules</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      <ul class="pLeft">
+        <li>For adding validation to the <code>qty_wheels</code>, I had to make sure that the inputted value was an integer and
+            greater or equal to 4 so I used <code>type="Number"</code> and <code>min="4"</code> in the buggy_form.html. In
+            app.py, I used an <code>if</code> statement so that it would check whether the inputted value was less than 4 or
+            if the number was divisible by 2 or not (input has to be an even number). By doing so, I was able to output
+            the corresponding error message (Note: by outputting an error message, this means that at least one input was
+            invalid and so the whole form will not be submitted as a new buggy until all inputs are valid).
+        <li>For the validation of <code>qty_tyres</code>, this value needed to be equal of greater than the <code>qty_wheels</code>
+            value. Thus, I used <code>type="Number"</code> in the buggy_form.html to make sure the input is an integer and
+            <code>min="4"</code> to make sure that the input is greater than or equal to 4. I then used an <code>if</code>
+            statement in app.py to compare the values of <code>qty_tyres</code> to <code>qty_wheels</code> to make sure that the
+            number inputted for <code>qty_tyres</code> is greater than <code>qty_wheels</code> and if not, then it would output
+            an error message as the input is invalid.
+        <li>For the validation to the <code>flag_color</code>, I first had to use <code>type="Color"</code> in the buggy_form.html
+            so the user can pick their desired colour's html code from a colour wheel (I also did this with <code>flag_color_secondary</code>).
+            As per the rules, I had to make sure that the first colour chosen was different to the secondary colour, so in the app.py,
+            I used an <code>if</code> statement to simultaneously check whether the chosen <code>flag_pattern</code> is plain, and
+            if it is plain, then the <code>flag_color</code> has to be the same as <code>flag_color_secondary</code>. Otherwise,
+            the form requires 2 different colour inputs.
+        <li>For adding validation to the <code>aux_power_units</code>, I had to make sure that the inputted values are greater than
+            or equal to 0. To do this, I first made sure that the user could only enter integers by using <code>type="Number"</code> and
+            that the user has to enter an input greater than or equal to 0 by using <code>min="0"</code> in the buggy_form.html. Then, I
+            made sure that if the user had entered an input that is "0", then it would output an error, this was done through an
+            <code>if</code> statement in app.py which would compare the user input to this rule.
+        <li>Hamster booster if there is hamster power type, has to have hamster Booster
+            For adding validation to the <code>hamster_booster</code>, I had to make sure that the input was an integer so I used <thead>
+            <code>type="Number"</code> in the buggy_form.html. I also made sure the minimim inputted value was "0" so i used <code>min="0"</code>.
+            For a hamster booster to be applied, the auxillary motive power must be "hamster". To make sure that this happens, I have added an
+            <code>if</code> statement in the app.py to check that if the <code>power_type</code> and <code>aux_power_type</code> is not "hamster" and
+            the <code>hamster_booster</code> is not "0" then an error would occur.
+        <li>qty_attacks >=0
+        <li>algo = equipped your buggy with no offensive capabilities, choose either defensive or steady.
+        <li>All items have messages = "" so outputs error when left blank.
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      Hard to do secondary colour plain part
     </p>
   </div>
 
@@ -163,6 +274,10 @@
     </p>
     <p>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      When you click qutofill, it will only fill in empty fields but not create buggy yet.
+      When you submit the buggy, it should be the only time it submits the buggy.
+      Right now, the buggy is going to be submitted as the autofilled items - so if you wanted to change
+      anything after being autofilled, then it won't be submitted as the autofill is already presaved.
     </p>
   </div>
 
