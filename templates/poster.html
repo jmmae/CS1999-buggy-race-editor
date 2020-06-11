@@ -38,7 +38,99 @@
   <a href="/" class="button">Home</a>
 </div>
 
-<p class="pLeft">test</p>
+<section class="cs1999-tasks">
+
+<h1 text-align="center">Build-a-buggy!</h1>
+
+<p><b>This program is designed to help YOU make a buggy quickly and easily!</b></p>
+
+<img src="static/Home.png">
+
+<p class="pLeft"><b>Key Features:</b>
+  <ul class="pLeft">
+    <li>Has a simple buggy form which uses drop down boxes, colour pickers and number boxes to help you with your inputs.
+    <li>There are buttons on every page that will help you get around the website easily.
+    <li>There is an autofill system in the buggy form which can create a buggy for you!
+    <li>You can create a default buggy if wanted.
+    <li>There is an easy deletion system for existing buggies.
+    <li>You can efficiently change any of the costs using the cost table which will be applied to your future buggies.
+    <li>You can see all your existing buggies on one page.
+    <li>The errors given are designed to inform you what went wrong while designing your buggy (fields are either left blank or your input does
+        not comply with race rules).
+    <li>If you have a budget, you can input this budget into the Total Cost section at the bottom of the buggy form and my program will output
+        a buggy that has your budget value.
+</p>
+
+
+
+
+<section class="cs1999-tasks">
+
+<h1 text-align="center">Instruction Manual</h1>
+
+<p>
+  <table style="background-color: #E0BBE4">
+    <tr>
+      <td><img src="static/Home.png" width="75%"></td>
+      <td width="50%"">This is the homepage of the webserver! It is coloured in bright colours for an eye catching effect.
+                       The picture is taken directly from the Buggy Race Server and the buttons are clearly labelled for easy access
+                       to other parts of the webserver.</td>
+    </tr>
+    <tr>
+      <td>This form will allow you to create your own buggy! This form shows up when you click on the "Create New Buggy" button
+          on the homepage. By clicking the "Empty All Inputs" button, you are able to clear out all the inputs that may be in the table.
+          This form simple and easy to use because you can use drop down boxes, colour pickers, and number boxes.</td>
+      <td><img src="static/Buggy_Form.png" width="75%"></td>
+    </tr>
+    <tr>
+      <td><img src="static/Autofill.png" width="75%"></td>
+      <td>Using the "Auto Fill Empty Inputs" button, you are able to fill the rest (or all) of your form with inputs that are randomly generated
+          by the program. This button will make it easier to make a buggy that follows all the rules automatically!</td>
+    </tr>
+    <tr>
+      <td><img src="static/Default_Buggy.png" width="75%"></td>
+      <td>By clicking the "Create Buggy With Default Values" button, this will input the default settings of the buggy - they can all be edited too!</td>
+    </tr>
+    <tr>
+      <td>On this page, you will be able to see all of the buggies that are stored on the database at the time. You are also able to pick which
+          buggy you like best, and click on the JSON link to get the JSON code for this buggy. You can also delete an individual buggy
+          by clicking the link at the bottom of the buggy. Finally, you are able to edit a buggy by clicking the edit link at the bottom of a single buggy table -
+          this link will take you back to the buggy form where you can change the inputs! You are also able to see your flag designs too! </td>
+      <td><img src="static/Show_Buggies.png" width="75%"></td>
+    </tr>
+    <tr>
+      <td><img src="static/Successful_Save.png" width="75%"></td>
+      <td>This message will appear once you have a inputted a buggy that doesn't break any rules and therefore is a valid buggy!</td>
+    </tr>
+    <tr>
+      <td>This is a message that will appear if you click the "Delete All Buggies" button - all existing buggies will now be removed from the table. This feature is useful
+          if you have created multiple buggies and deleting them all will be time consuming if done one by one.</td>
+      <td><img src="static/Buggies_Deleted.png" width="75%"></td>
+    </tr>
+    <tr>
+      <td><img src="static/Errors.png" width="75%"></td>
+      <td>For this case, all of the errors have appeared because the whole form was left blank and prompts the user to click the "Go Back previous
+         Page" button which will take the user back to the Buggy Form to fill in the fields they left blank.</td>
+    </tr>
+    <tr>
+      <td>If make a few mistakes while making your buggy, thats alright! My program will let you know where exactly your inputs may have broken the
+          rules of the race and how you can fix it.</td>
+      <td><img src="static/Errors2.png" width="75%"></td>
+    </tr>
+    <tr>
+      <td><img src="static/Target_Cost.png" width="75%"></td>
+      <td>If you have a budget but still want to make a buggy, you can! By using the "TARGET COST" input box and click the "Auto Fill Empty Inputs" button,
+         you can set an amount for your buggy. However, there is a maximum amount that is found by the program in which will generate an error if you input a value
+         which is higher than this amount, so be careful about your input value!</td>
+    </tr>
+    <tr>
+      <td>This is the page where all the costs for each item is displayed! These values can be edited by changing the values in the input boxes and then
+          by pressing the "Update Costs" button, it will change the costs of the items changed, which will then allow any new buggies created to have the new cost values.
+          You can also set the costs back to the default values using the "Set Costs Back To Defaut Values" button.</td>
+      <td><img src="static/Costs_Table.png" width="75%"></td>
+    </tr>
+  </table>
+</p>
 
 <section class="cs1999-tasks">
 
@@ -162,11 +254,12 @@
 
   <div class="task">
     <h2>2-EDIT Edit the record by loading its current values into the form</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
-    </p>
-    <p>
-      <!-- sentence(s) on anything interesting/incomplete you did -->
+      To edit a buggy, I have updated the buggy.html with a link to the <code>/edit</code> route in the app.py.
+      The route is connected to the <code>buggy_id</code> tag - then, connected to SQL, I used SELECT to find the <code>buggy_id</code> I wanted
+      to edit from the database. This particular buggy is then fetched and so it renders the template to the buggy form. The buggy form then returns
+      the information to the table for the user to view and edit. Once, the user submits the buggy, the buggy is now updated with the new values.
     </p>
   </div>
 
@@ -174,42 +267,58 @@
     <h2>2-FORM Make the form better</h2>
     <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
-      For this task, I thought that a good way in making the form presentable and easier to read
-      is to have the user enter their inputs onto a table as opposed to having all the categories just laid under
-      each other as it looks disorganised and messy. This way, it is clear what the user has to fill out as the input boxes
-      are now in a neat table, all clearly labelled. The errors are displayed in the middle of the screen where they appear
-      in the order they come. For example, if you have multiple errors, the program will tell the user what errors they have encountered
-      and their inputs will not be submitted into the a new buggy until all of the rules are met.
-    </p>
-    <p class="pLeft">
-      I also added additional buttons which allows the user to easily transition to the pages they want. The buttons are accurately
-      names to do the function they say, for example, the "Create New Buggy" button displays the table for the user to input
-      the values they want. Another feature I have added is the "£" that is displayed in the table whenever cost is involved -
-      this allows the user to know the currency.
-    </p>
-    <p class="pLeft">
-      I have also included a drop down box feature where instead of the users typing in their string inputs, the form will present
-      the user with drop down boxes with the valid options - this is useful as it is harder to make a mistake when choosing
-      from an array of preset answers.
+      <ul class="pLeft">
+        <li>For this task, I thought that a good way in making the form presentable and easier to read
+            is to have the user enter their inputs onto a table as opposed to having all the categories just laid under
+            each other as it looks disorganised and messy. This way, it is clear what the user has to fill out as the input boxes
+            are now in a neat table, all clearly labelled. The errors are displayed in the middle of the screen where they appear
+            in the order they come. For example, if you have multiple errors, the program will tell the user what errors they have encountered
+            and their inputs will not be submitted into the a new buggy until all of the rules are met.
+        <li>I also added additional buttons which allows the user to easily transition to the pages they want. The buttons are accurately
+            names to do the function they say, for example, the "Create New Buggy" button displays the table for the user to input
+            the values they want. Another feature I have added is the "£" that is displayed in the table whenever cost is involved -
+            this allows the user to know the currency.
+        <li>I have also included a drop down box feature where instead of the users typing in their string inputs, the form will present
+            the user with drop down boxes with the valid options - this is useful as it is harder to make a mistake when choosing
+            from an array of preset answers.
+        <li>I have added a "Home" button to every page so the user can freely move around the webserver and get to where they want to go easily.
+        <li>I have added a "Go Back Previous Page" button in the Buggy Update Status page so the user can go back to the buggy they were
+            working on with the retained values still in the form itself (the form will not be submitted, until all the errors are fixed).
+      </ul>
     </p>
     <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
-      It might've been a good idea to have all the errors displayed next to where the error actually occurred in a third column
-      of the buggy form table while retaining the original inputs and clearing the input boxes that contained the error.
+      <ul class="pLeft">
+        <li>It might've been a good idea to have all the errors displayed next to where the error actually occurred in a third column
+            of the buggy form table while retaining the original inputs and clearing the input boxes that contained the error.
+        <li>There is a slight problem with the "Go Back Previous Page" button, let's say you have created a buggy with default values using the "Create Buggy With Default Values" button,
+            if you click the "Go Back Previous Page" button, the buggies on that page will not have automatically refreshed so the new default buggy will not appear
+            unless you manually refresh.
+      </ul>
     </p>
   </div>
 
   <div class="task">
     <h2>2-COST Calculate and save the game cost of the buggy</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
-      Originally, I put a fixed cost (default) in the app.py (if petrol is 4 * power unit), then realised
-      based from specs, the cost can be changed anytime, in 24 hours notice. Thuus, I decided to create a costs table
-      inside the database.
+      <ul class="pLeft">
+        <li>Originally, I put a fixed cost (default) in the app.py (e.g. if petrol is 4 * power unit), then realised
+            based from specs, the cost can be changed anytime, in 24 hours notice. Thus, I decided to create a costs table in
+            the init_db.py which we can use to store the cost information for each of the items.
+        <li>In the init_db.py, I added a <code>total_cost</code> inside the buggies table to calculate the total cost.
+        <li>All the costs were added in the app.py by connecting to the database through SQL, then SELECT the costs table
+            to get the cost for each item. Then I used the costs item variable to use it a multiplier. All the values were added
+            which made up the<code>total_cost</code>.
+        <li>I have also created a <code>cost_form</code> which can be accessed by a button. This form allows the user to change
+            the any values of any item cost as it states in the rules, that costs can be changed 24 hours in advance. I have also included
+            another "Set Costs Back To Default Values" button that will allow you to reset any of the changes you have made to the cost.
+        </ul>
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
-      "+10% for every wheel your buggy has over four"
+      In the <code>armour_cost</code>, we are told "+10% for every wheel your buggy has over four". Thus, I have implemented this
+      into the code using <code>armour_uplift</code>.
     </p>
   </div>
 
@@ -232,10 +341,9 @@
             an error message as the input is invalid.
         <li>For the validation to the <code>flag_color</code>, I first had to use <code>type="Color"</code> in the buggy_form.html
             so the user can pick their desired colour's html code from a colour wheel (I also did this with <code>flag_color_secondary</code>).
-            As per the rules, I had to make sure that the first colour chosen was different to the secondary colour, so in the app.py,
-            I used an <code>if</code> statement to simultaneously check whether the chosen <code>flag_pattern</code> is plain, and
-            if it is plain, then the <code>flag_color</code> has to be the same as <code>flag_color_secondary</code>. Otherwise,
-            the form requires 2 different colour inputs.
+            As per the rules, If the flag pattern is not "plain", then <code>flag_color</code> and <code>flag_color_secondary</code> should be different.
+            So in the app.py, I used an <code>if</code> statement to simultaneously check whether the chosen <code>flag_pattern</code> is "plain", and
+            if the <code>flag_color</code> is the same as <code>flag_color_secondary</code>. Otherwise, the form requires 2 different colour inputs.
         <li>For adding validation to the <code>aux_power_units</code>, I had to make sure that the inputted values are greater than
             or equal to 0. To do this, I first made sure that the user could only enter integers by using <code>type="Number"</code> and
             that the user has to enter an input greater than or equal to 0 by using <code>min="0"</code> in the buggy_form.html. Then, I
@@ -244,80 +352,165 @@
         <li>Hamster booster if there is hamster power type, has to have hamster Booster
             For adding validation to the <code>hamster_booster</code>, I had to make sure that the input was an integer so I used <thead>
             <code>type="Number"</code> in the buggy_form.html. I also made sure the minimim inputted value was "0" so i used <code>min="0"</code>.
-            For a hamster booster to be applied, the auxillary motive power must be "hamster". To make sure that this happens, I have added an
-            <code>if</code> statement in the app.py to check that if the <code>power_type</code> and <code>aux_power_type</code> is not "hamster" and
+            For a hamster booster to be applied, the <code>power_type</code> or <code>aux_power_type</code> must be "hamster". To make sure that this happens,
+            I have added an <code>if</code> statement in the app.py to check that if the <code>power_type</code> and <code>aux_power_type</code> is not "hamster" and
             the <code>hamster_booster</code> is not "0" then an error would occur.
-        <li>qty_attacks >=0
-        <li>algo = equipped your buggy with no offensive capabilities, choose either defensive or steady.
-        <li>All items have messages = "" so outputs error when left blank.
-    </p>
-    <p class="pLeft"><b>Additional Comments:</b>
-      <!-- sentence(s) on anything interesting/incomplete you did -->
-      Hard to do secondary colour plain part
+        <li>For adding validation to the <code>qty_attacks</code>, I had to make sure that the number that is inputted is greater than
+            or equal to 0. To do this, I first made sure that the user could only enter integers by using <code>type="Number"</code> and
+            that the user has to enter an input greater than or equal to 0 by using <code>min="0"</code> in the buggy_form.html. Then, I
+            made sure that if the user had entered an input that is "0", then it would output an error, this was done through an
+            <code>if</code> statement in app.py which would compare the user input to this rule.
+        <li>For adding validation for <code>algo</code>, I had to make sure that if the user had chose "none" for <code>attack</code>
+            then the user has to input either "defensive" or "steady" for <code>algo</code>. To do this, I used an <code>if</code>
+            statement in the app.py to generate an error message if this rule is not followed.
+        <li>In the app.py, To get all error messages out, I have created a large <code>if</code> statement.
+            This statement is used to validate that if one of the the items are "" or one of the rules are broken, then the program will give the user
+            an error in the updated.html.
     </p>
   </div>
 
   <div class="task">
     <h2>3-ENV Switch to using development or production environments</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
-    </p>
-    <p>
+      <ul class="pLeft">
+        <li>I usually run FLASK_ENV=development python3 app.py to run my webserver. This is in development environment and I can see the error where the program stops.
+            The error shows the location the problem occured and also provides hints as to why the error has happened.
+        <li>When I run FLASK_ENV=production python3 app.py, it gave me a warning that this is a development environment and I should use WSGI server to run on production
+            therefore, I researched how to run flask in production environment.
+        <li>I found that you needed to build a package first before you can upload it to the production server. Therefore, to do this is I have to do the following:
+            <ul>
+              <li>First, create setup.py where the file would show the metadata of the package. This file will have the name, version and the package.
+              <li>Then, I need to have the latest version of setuptools and wheel. Therefore, I run the command <code>python3 -m pip install --user --upgrade setuptools wheel</code>.
+              <li>In the same directory as setup.py, I run <code>python3 setup.py sdist bdist_wheel</code>.
+              <li>This command will create 2 files (1 in zip and 1 in tar) under dist/.
+              <li>Then, I used TestPyPi to upload the package so I created my account and got an API Token for this project.
+              <li>I then typed <code>python3 -m pip install --user --upgrade twine</code> to install twine.
+              <li>Finally, I upload the package to the TestPyPi server using <code>python3 -m twine upload --repository testpypi dist/*</code>.
+            </ul>
+        </ul>
+      </p>
+  <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
-    </p>
+      I managed to upload the package to TestPyPi and I can now see the package in the website.  As suggested, I've downloaded the package as well to a new virtual environment to check if it works.
+      But this is where I got stuck as I still cannot find a way to run this in production server.
+  </p>
   </div>
 
   <div class="task">
     <h2>3-AUTOFILL Add auto-fill to the edit forms</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      <ul class="pLeft">
+        <li>To create the autofill, I've created a new route <code>/autofill</code> which has <code>methods=['POST']</code>. This autofill will only search for any blank fields and will input a random
+            value for any empty items. The items that already has values will be retained.
+        <li>I used <code>random.randint(a,b)</code> to create a random integer between a and b and for the random texts, I used <code>random.choice(["knobbly","slick","steelband","reactive","maglev"])</code>
+        <li>For the <code>flag_color</code> and <code>flag_color_secondary</code>, this was done differently as it has to be a Hex value. After doing some research, I've found a way
+            to do this:
+            <ul class="pLeft">
+              <li><code>random_number = random.randint(0,16777215)</code> this randomises a number between 0 and 16777215.
+              <li><code>flag_color = format(random_number,'x')</code>
+              <li><code>flag_color = '#'+flag_color</code> this turned the random number into a colour code number.
+            </ul>
+        <li>I have also created a variable called <code>max_number</code> which was used for the random integer so the random number will only have a limit of up to the <code>max_number</code>. In this case,
+            I have made the <code>max_number=30</code>.  If it needs to be higher, then it can easily be changed in the code.
+        <li>I've also done an autofill to match a <code>target_cost</code>. In the buggy form, the last row is for the user to input the <code>target_cost</code>.
+        <li>Once this is filled and the Auto Fill button is clicked, then it will also go to the <code>/autofill</code> route but I have an if condition there to check if <code>target_cost.isdigit()</code>.
+            If there is an input, then it will loop while the <code>target_cost != total_cost</code>. The risk of this is that it could go on forever. Therefore, I've introduced another variable called <code>max_attempts</code>
+            which I've set to 10,000.  Once that is reached, it will give an error and say that the max attempts is reached so you can reinput another <code>target_cost</code> value again.
+        <li>Before I did the point above, I calculated the minimum and maximum cost of the buggy. I've used this to compare the user's inputted <code>target_cost</code> to check if it's below the minimum
+           cost and above the maximum cost. If so, then an Error will appear in the updated.html telling the user the minimum or maximum cost limit is reached so the user should go back again and edit the
+           <code>target_cost</code>. The minimum and maximum cost limits are calculated based on the costs table and the <code>max_number</code>.
+        <li>Once this is done, the program will then insert all the autofilled random data to a new table and save the table. Then it will go back to the buggy form again for the user to check
+            if they are happy with the autofilled values. The user still have a chance to update this in the buggy form and once satisfied, the user can submit the buggy.
+      </ul>
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
-      When you click qutofill, it will only fill in empty fields but not create buggy yet.
-      When you submit the buggy, it should be the only time it submits the buggy.
-      Right now, the buggy is going to be submitted as the autofilled items - so if you wanted to change
-      anything after being autofilled, then it won't be submitted as the autofill is already presaved.
+      <ul class="pLeft">
+        <li>While writing this task I found a solution to autofill the form without writing to the buggies table first - this is the ideal way of doing autofill. I had to create a new temporary buggy form (buggy-form-temp.html)
+            where I can display the autofilled values.
+        <li>This new html file is exactly the same as the buggy-form.html except that the buggy-form.html uses <code>buggy['qty_wheels']</code> to get the records directly from the table while the buggy-form-temp.html
+            uses <code>qty_wheels</code> to get the values from the random generator.
+        <li>By doing this, I've removed all the code in the <code>/autofill</code> that creates the table with the new values and instead, I've replaced it with a single line <code>return render_template</code> to the
+            buggy-form-temp.html which took all the autofilled values.
+        <li>By taking this into account, I have also added a button in both the buggy-form.html and buggy-form-temp.html to Empty the Inputs so if the user decides to reset the inputs, they can.  I just created a
+            new route <code>/empty</code> to <code>return render_template</code> back to buggy form with <code>buggy=None</code>.
+      </ul>
     </p>
   </div>
 
   <div class="task">
     <h2>3-MULTI Allow different buggies to be created</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      <ul class="pLeft">
+        <li>To create new buggies, I used the SQL INSERT function in the POST to add new rows to the buggies table.
+        <li>First, I changed the route <code>/new method=='GET'</code> to <code>return render_template</code> to the buggy-form.html and make <code>buggy=None</code> so when I opened the buggy-form, all the input fields will become blank.
+        <li>Once the user has inputted their data and clicked submit, the 'POST' request happens and it will do the usual validation checks and in the <code>try</code> section, I used an <code>if</code> statement to check if the buggy ID exists
+            or not by using the <code>.isdigit()</code>.  If the buggy ID is blank which is the case of new buggy, then I used  <code>cur.execute("INSERT INTO buggies ....</code> command to create new buggies in the buggies table.
+        <li>I've also added a button in the Show Buggies to create a default buggy where the values are based off the specs table. By doing so, I have to create a new route <code>/default_buggy</code> and use INSERT to create a new
+            table using the default values from the init_db.py.
+      </ul>
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      When more buggies were created, the original JSON button in the home page was only showing the first buggy created (Buggy ID #1). Also, when I delete first buggy/only buggy in the table, the JSON button stopped working. Therefore,
+      I have decided to create a JSON link to each singular buggy instead. Since JSON is only needed for each buggy and not all the entire buggies at once, I think it will be better be placed there.
+      In this case, I've used the same method as the edit buggy and applied it to the <code>/json</code> route.  So, I can now get the JSON file for each individual buggy.
     </p>
   </div>
 
   <div class="task">
     <h2>3-DEL Allow buggies to be deleted</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      <ul class="pLeft">
+        <li>To delete a buggy, I used the same method as I used for editing the buggy. I also added a link in the buggy.html to Delete an individual buggy.
+        <li>Therefore, I created an <code>@app.route('/delete/<buggy_id>')</code> in app.py and used <code>cur.execute("DELETE FROM buggies WHERE id=?", (buggy_id,))</code> to delete an individual buggy.
+        <li>Once successful, a message will appear also in the updated.html.
+        <li>I then added a "Delete All Buggies" button so if the user wants to delete all buggies in one-go, they can.  Therefore, I added <code>@app.route('/delete_all')</code> in the app.py to do this function.
+        <li>Finally, I used <code>cur.execute("DELETE FROM buggies")</code> to delete all buggies from the table.
+      </ul>
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      I originally only managed to create delete individual buggy function but when I created a lot of buggies while testing, I had to delete each buggy, one by one which was time consuming.  Therefore, this gave me the idea
+      to make a "Delete All Buggies" button.
     </p>
   </div>
 
   <div class="task">
     <h2>3-FLAG Display the pennant graphically</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
-    </p>
-    <p>
-      <!-- sentence(s) on anything interesting/incomplete you did -->
+      In the buggy.html, I have created patterns for each of the flags using <code>svg</code> to set the pixel width and height of the flags.
+      I used the <code>rect</code> tag to make rectangle shapes on the flags. I used the <code>polygon points</code> to customise the flags by
+      finding the points needed and by inserting the chosen colours to make the desired pattern. Finally, for the "spot" pattern, I used the <code>circle</code> tag
+      to make circles on the flags.
     </p>
   </div>
 
   <div class="task">
     <h2>3-TESTS Write some tests</h2>
-    <p>
+    <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
+      <ul class="pLeft">
+          <li>For this task, I have looked into and researched this topic but I'm having problems implementing what I've read so far.
+          <li>I have looked on the <code>unittest</code> as directed in one of the hints in the buggy server website.  I have also looked at some examples online
+              and managed to check/test whether those examples work or not.  But so far, I have only managed to do this on those examples.
+              <ul>
+                <li>For this example, I created a simple python file which has a def and the formula and named it as sample.py
+                <li>Then I created another python file and named it as test_sample.py as per the standard naming convention for test files.
+                <li>On the test_sample.py, this is where I created a series of tests by importing first <code>unittest</code>.
+                <li>Then, I did the test commands using <code>self.assertAlmostEqual</code> to check if the input will matches the output.
+                <li>Finally, I ran the test_sample.py to check if the test was successful or if it failed.
+              </ul>
+      </ul>
     </p>
-    <p>
+    <p class="pLeft"><b>Additional Comments:</b>
       <!-- sentence(s) on anything interesting/incomplete you did -->
+      As per above, my problem was trying to apply this test to my webserver.
     </p>
   </div>
 </section>

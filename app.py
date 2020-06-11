@@ -298,6 +298,12 @@ def create_buggy():
       con.close()
       return render_template("updated.html", msg = msg)
 
+#------------------------------------------------------------
+# a page for emptying the buggy form
+#------------------------------------------------------------
+@app.route('/empty', methods = ['POST'])
+def empty():
+    return render_template("buggy-form.html", buggy=None)
 
 #------------------------------------------------------------
 # a page for displaying the buggy
@@ -569,6 +575,12 @@ def autofill():
     random_number2 = random.randint(0,16777215)
     flag_color_secondary =format(random_number2,'x')
     flag_color_secondary = '#'+flag_color_secondary
+
+  if flag_pattern == "plain":
+    random_number = random.randint(0,16777215)
+    flag_color =format(random_number,'x')
+    flag_color = '#'+flag_color
+    flag_color_secondary = flag_color
 
   if power_type == "":
     power_type = random.choice(["petrol","fusion","steam","bio","electric","rocket","hamster","thermo","solar","wind"])
@@ -956,41 +968,10 @@ def autofill():
 
   con.close()
 
-  try:
-    buggy_id = request.form['id']
-    with sql.connect(DATABASE_FILE) as con:
-      cur = con.cursor()
-      if buggy_id.isdigit():
-        cur.execute("UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, power_type=?, power_units=?, \
-        aux_power_type=?, aux_power_units=?, hamster_booster=?, tyres=?, qty_tyres=?, armour=?, attack=?, qty_attacks=?, fireproof=?, insulated=?, \
-        antibiotic=?, banging=?, algo=?, total_cost=? WHERE id=?", \
-        (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, aux_power_type, aux_power_units, \
-        hamster_booster, tyres, qty_tyres, armour, attack, qty_attacks, fireproof, insulated, antibiotic, banging, \
-        algo, total_cost, buggy_id))
-      else:
-        cur.execute("INSERT INTO buggies (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, \
-        aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, attack, qty_attacks, fireproof, insulated, \
-        antibiotic, banging, algo, total_cost) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", \
-        (qty_wheels, flag_color, flag_color_secondary, flag_pattern, power_type, power_units, \
-        aux_power_type, aux_power_units, hamster_booster, tyres, qty_tyres, armour, attack, qty_attacks, fireproof, insulated, \
-        antibiotic, banging, algo, total_cost))
-        con.commit()
-  except:
-    con.rollback()
-  finally:
-    con.close()
-
-  con = sql.connect(DATABASE_FILE)
-  con.row_factory = sql.Row
-  cur = con.cursor()
-  if buggy_id.isdigit():
-    cur.execute("SELECT * FROM buggies WHERE id=? LIMIT 1", (buggy_id,))
-    record = cur.fetchone();
-    return render_template("buggy-form.html", buggy = record)
-  else:
-    cur.execute("SELECT * FROM buggies ORDER BY id DESC LIMIT 1")
-    record = cur.fetchone();
-    return render_template("buggy-form.html", buggy = record)
+  return render_template("buggy-form-temp.html",qty_wheels=qty_wheels, flag_color=flag_color, flag_color_secondary=flag_color_secondary, \
+  flag_pattern=flag_pattern, power_type=power_type, power_units=power_units, aux_power_type=aux_power_type, aux_power_units=aux_power_units, \
+  hamster_booster=hamster_booster, tyres=tyres, qty_tyres=qty_tyres, armour=armour, attack=attack, qty_attacks=qty_attacks, \
+  fireproof=fireproof, insulated=insulated, antibiotic=antibiotic, banging=banging, algo=algo, total_cost=total_cost)
 
 @app.route('/poster')
 def poster():

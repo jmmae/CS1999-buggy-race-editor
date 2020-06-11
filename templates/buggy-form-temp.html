@@ -1,0 +1,222 @@
+<!doctype html>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>
+    {% if buggy %}
+      Edit Buggy #{{ id }}
+    {% else %}
+      Create New Buggy
+    {% endif %}
+  </h1>
+
+  <div class="spacer">
+    <a href="/" class="button">Home</a>
+    <a href="/buggy" class="button">Show Buggies</a>
+  </div>
+
+  <form action="/new" method="post">
+
+  <table class="center">
+
+   <tr>
+    <th>Buggy ID:</th> <th> {{ id }} </th>
+   </tr>
+
+   <input hidden type="Number" name="id" value="{{ id }}"/>
+
+   <tr>
+   <td><label for="qty_wheels">Number of Wheels (>=4 and must be even): </label></td>
+   <td><input type="Number" name="qty_wheels" min="4" value="{{ qty_wheels }}"/></td>
+   </tr>
+
+   <tr>
+   <td><label for="tyres">Tyres Type: </label></td>
+   <td><select id="tyres" name="tyres">
+     <option value="" {% if tyres == None %} selected {% endif %}></option>
+     <option value="knobbly" {% if tyres == "knobbly" %} selected {% endif %}>Knobbly</option>
+     <option value="slick" {% if tyres == "slick" %} selected {% endif %}>Slick</option>
+     <option value="steelband" {% if tyres == "steelband" %} selected {% endif %}>Steelband</option>
+     <option value="reactive" {% if tyres == "reactive" %} selected {% endif %}>Reactive</option>
+     <option value="maglev" {% if tyres == "maglev" %} selected {% endif %}>Maglev</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="qty_tyres">Number of Tyres (>= Number of Wheels): </label></td>
+   <td><input type="Number" name="qty_tyres" min="4" value="{{ qty_tyres }}"/></td>
+   </tr>
+
+   <tr>
+   <td><label for="flag_pattern">Flag's Pattern (If Plain is selected, only Flag's Colour will be used): </label></td>
+   <td><select id="flag_pattern" name="flag_pattern">
+     <option value="" {% if flag_pattern == None %} selected {% endif %}></option>
+     <option value="plain" {% if flag_pattern == "plain" %} selected {% endif %}>Plain</option>
+     <option value="vstripe" {% if flag_pattern == "vstripe" %} selected {% endif %}>Vstripe</option>
+     <option value="hstripe" {% if flag_pattern == "hstripe" %} selected {% endif %}>Hstripe</option>
+     <option value="dstripe" {% if flag_pattern == "dstripe" %} selected {% endif %}>Dstripe</option>
+     <option value="checker" {% if flag_pattern == "checker" %} selected {% endif %}>Checker</option>
+     <option value="spot" {% if flag_pattern == "spot" %} selected {% endif %}>Spot</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="flag_color">Flag's Colour: </label></td>
+   <td><input type="color" name="flag_color" value="{{ flag_color }}" required/></td>
+   </tr>
+
+   <tr>
+   <td><label for="flag_color_secondary">Flag's Other Colour (Must be different from Flag's Colour (unless pattern is plain)): </label></td>
+   <td><input type="color" name="flag_color_secondary" value="{{ flag_color_secondary }}" required/></td>
+   </tr>
+
+   <tr>
+   <td><label for="power_type">Primary Motive Power Type (Use 1 unit only for non-consumable): </label></td>
+   <td><select id="power_type" name="power_type">
+     <option value="" {% if power_type == None %} selected {% endif %}></option>
+     <option value="petrol" {% if power_type == "petrol" %} selected {% endif %}>Petroleum-fuelled internal combustion engine</option>
+     <option value="fusion" {% if power_type == "fusion" %} selected {% endif %}>Fusion reactor (non-consumable)</option>
+     <option value="steam" {% if power_type == "steam" %} selected {% endif %}>Steam engine</option>
+     <option value="bio" {% if power_type == "bio" %} selected {% endif %}>Bio-fuelled internal combustion engine</option>
+     <option value="electric" {% if power_type == "electric" %} selected {% endif %}>Lithium-ion battery</option>
+     <option value="rocket" {% if power_type == "rocket" %} selected {% endif %}>Rocket fuel</option>
+     <option value="hamster" {% if power_type == "hamster" %} selected {% endif %}>Hamster</option>
+     <option value="thermo" {% if power_type == "thermo" %} selected {% endif %}>Thermonuclear reactor (non-consumable)</option>
+     <option value="solar" {% if power_type == "solar" %} selected {% endif %}>Bank of solar panels (non-consumable)</option>
+     <option value="wind" {% if power_type == "wind" %} selected {% endif %}>Sailing rig (non-consumable)</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="power_units">Primary Motive Power Units: </label></td>
+   <td><input type="Number" name="power_units" min="1" value="{{ power_units }}"/></td>
+   </tr>
+
+   <tr>
+   <td><label for="aux_power_type">Auxiliary Motive Power Type (Use 1 unit only for non-consumable): </label></td>
+   <td><select id="aux_power_type" name="aux_power_type">
+     <option value="" {% if aux_power_type == None %} selected {% endif %}>None</option>
+     <option value="petrol" {% if aux_power_type == "petrol" %} selected {% endif %}>Petroleum-fuelled internal combustion engine</option>
+     <option value="fusion" {% if aux_power_type == "fusion" %} selected {% endif %}>Fusion reactor (non-consumable)</option>
+     <option value="steam" {% if aux_power_type == "steam" %} selected {% endif %}>Steam engine</option>
+     <option value="bio" {% if aux_power_type == "bio" %} selected {% endif %}>Bio-fuelled internal combustion engine</option>
+     <option value="electric" {% if aux_power_type == "electric" %} selected {% endif %}>Lithium-ion battery</option>
+     <option value="rocket" {% if aux_power_type == "rocket" %} selected {% endif %}>Rocket fuel</option>
+     <option value="hamster" {% if aux_power_type == "hamster" %} selected {% endif %}>Hamster</option>
+     <option value="thermo" {% if aux_power_type == "thermo" %} selected {% endif %}>Thermonuclear reactor (non-consumable)</option>
+     <option value="solar" {% if aux_power_type == "solar" %} selected {% endif %}>Bank of solar panels (non-consumable)</option>
+     <option value="wind" {% if aux_power_type == "wind" %} selected {% endif %}>Sailing rig (non-consumable)</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="aux_power_units">Auxiliary Motive Power Units:</label></td>
+   <td><input type="Number" name="aux_power_units" min="0" value="{{ aux_power_units }}"/></td>
+   </tr>
+
+   <tr>
+   <td><label for="hamster_booster">Hamster Booster (Only effective if you have hamster motive power):</label></td>
+   <td><input type="Number" name="hamster_booster" min="0" value="{{ hamster_booster }}"/></td>
+   </tr>
+
+   <tr>
+   <td><label for="armour">Armour Type: </label></td>
+   <td><select id="armour" name="armour">
+     <option value="" {% if armour == None %} selected {% endif %}></option>
+     <option value="none" {% if armour == "none" %} selected {% endif %}>None</option>
+     <option value="wood" {% if armour == "wood" %} selected {% endif %}>Wood</option>
+     <option value="aluminium" {% if armour == "aluminium" %} selected {% endif %}>Aluminium</option>
+     <option value="thinsteel" {% if armour == "thinsteel" %} selected {% endif %}>Thinsteel</option>
+     <option value="thicksteel" {% if armour == "thicksteel" %} selected {% endif %}>Thicksteel</option>
+     <option value="titanium" {% if armour == "titanium" %} selected {% endif %}>Titanium</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="attack">Offensive Capability: </label></td>
+   <td><select id="attack" name="attack">
+     <option value="" {% if attack == None %} selected {% endif %}></option>
+     <option value="none" {% if attack == "none" %} selected {% endif %}>None</option>
+     <option value="spike" {% if attack == "spike" %} selected {% endif %}>Spike</option>
+     <option value="flame" {% if attack == "flame" %} selected {% endif %}>Flame</option>
+     <option value="charge" {% if attack == "charge" %} selected {% endif %}>Charge</option>
+     <option value="biohazard" {% if attack == "biohazard" %} selected {% endif %}>Biohazard</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="qty_attacks">Number of Attacks:</label></td>
+   <td><input type="Number" name="qty_attacks" min="0" value="{{ qty_attacks }}"/></td>
+   </tr>
+
+   <tr>
+   <td><label for="fireproof">Fireproof? </label></td>
+   <td><select id="fireproof" name="fireproof">
+     <option value="" {% if fireproof == None %} selected {% endif %}></option>
+     <option value="1" {% if fireproof == 1 %} selected {% endif %}>Yes</option>
+     <option value="0" {% if fireproof == 0 %} selected {% endif %}>No</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="insulated">Insulated? </label></td>
+   <td><select id="insulated" name="insulated">
+     <option value="" {% if insulated == None %} selected {% endif %}></option>
+     <option value="1" {% if insulated == 1 %} selected {% endif %}>Yes</option>
+     <option value="0" {% if insulated == 0 %} selected {% endif %}>No</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="antibiotic">Antibiotic? </label></td>
+   <td><select id="antibiotic" name="antibiotic">
+     <option value="" {% if antibiotic == None %} selected {% endif %}></option>
+     <option value="1" {% if antibiotic == 1 %} selected {% endif %}>Yes</option>
+     <option value="0" {% if antibiotic == 0 %} selected {% endif %}>No</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="banging">Banging sound system?: </label></td>
+   <td><select id="banging" name="banging">
+     <option value="" {% if banging == None %} selected {% endif %}></option>
+     <option value="1" {% if banging == 1 %} selected {% endif %}>Yes</option>
+     <option value="0" {% if banging == 0 %} selected {% endif %}>No</option>
+   </select></td>
+   </tr>
+
+   <tr>
+   <td><label for="algo">Race computer algorithm (If no offensive capability, then only select defensive or steady): </label></td>
+   <td><select id="algo" name="algo">
+     <option value="" {% if algo == None %} selected {% endif %}></option>
+     <option value="steady" {% if algo == "steady" %} selected {% endif %}>Steady</option>
+     <option value="defensive" {% if algo == "defensive" %} selected {% endif %}>Defensive</option>
+     <option value="offensive" {% if algo == "offensive" %} selected {% endif %}>Offensive</option>
+     <option value="titfortat" {% if algo == "titfortat" %} selected {% endif %}>Titfortat</option>
+     <option value="random" {% if algo == "random" %} selected {% endif %}>Random</option>
+     <option value="buggy" hidden></option>
+   </select></td>
+   </tr>
+
+   <tr>
+     <th><label for="total_cost">Current Total Cost of Buggy (Snapshot before change) in £</label></th>
+     <th><input disabled type="Number" name="total_cost" value="{{ total_cost }}"/></th>
+   </tr>
+
+   <tr>
+     <th><label for="target_cost">TARGET COST (Note: Will change all Values to match Target Cost) in £</label></th>
+     <th><input type="Number" name="target_cost" value="{{ target_cost }}"/></th>
+   </tr>
+
+  </table>
+
+  <div class="spacer">
+    <input type="submit" class="button" value="Submit Buggy">
+    <input type="submit" class="button" formaction="/autofill" value="Auto Fill Empty Inputs">
+    <input type="submit" class="button" formaction="/empty" value="Empty All Inputs">
+  </div>
+  </form>
+
+{% endblock %}
