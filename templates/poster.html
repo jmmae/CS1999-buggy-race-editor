@@ -59,6 +59,7 @@
         not comply with race rules).
     <li>If you have a budget, you can input this budget into the Total Cost section at the bottom of the buggy form and my program will output
         a buggy that has your budget value.
+  </ul>
 </p>
 
 
@@ -88,46 +89,49 @@
           by the program. This button will make it easier to make a buggy that follows all the rules automatically!</td>
     </tr>
     <tr>
-      <td><img src="static/Default_Buggy.png" width="75%"></td>
+
       <td>By clicking the "Create Buggy With Default Values" button, this will input the default settings of the buggy - they can all be edited too!</td>
+      <td><img src="static/Default_Buggy.png" width="75%"></td>
     </tr>
     <tr>
+      <td><img src="static/Show_Buggies.png" width="75%"></td>
       <td>On this page, you will be able to see all of the buggies that are stored on the database at the time. You are also able to pick which
           buggy you like best, and click on the JSON link to get the JSON code for this buggy. You can also delete an individual buggy
           by clicking the link at the bottom of the buggy. Finally, you are able to edit a buggy by clicking the edit link at the bottom of a single buggy table -
           this link will take you back to the buggy form where you can change the inputs! You are also able to see your flag designs too! </td>
-      <td><img src="static/Show_Buggies.png" width="75%"></td>
+
     </tr>
     <tr>
-      <td><img src="static/Successful_Save.png" width="75%"></td>
+
       <td>This message will appear once you have a inputted a buggy that doesn't break any rules and therefore is a valid buggy!</td>
+      <td><img src="static/Successful_Save.png" width="75%"></td>
     </tr>
     <tr>
+      <td><img src="static/Buggies_Deleted.png" width="75%"></td>
       <td>This is a message that will appear if you click the "Delete All Buggies" button - all existing buggies will now be removed from the table. This feature is useful
           if you have created multiple buggies and deleting them all will be time consuming if done one by one.</td>
-      <td><img src="static/Buggies_Deleted.png" width="75%"></td>
     </tr>
     <tr>
-      <td><img src="static/Errors.png" width="75%"></td>
       <td>For this case, all of the errors have appeared because the whole form was left blank and prompts the user to click the "Go Back previous
          Page" button which will take the user back to the Buggy Form to fill in the fields they left blank.</td>
+      <td><img src="static/Errors.png" width="75%"></td>
     </tr>
     <tr>
+      <td><img src="static/Errors2.png" width="75%"></td>
       <td>If make a few mistakes while making your buggy, thats alright! My program will let you know where exactly your inputs may have broken the
           rules of the race and how you can fix it.</td>
-      <td><img src="static/Errors2.png" width="75%"></td>
     </tr>
     <tr>
-      <td><img src="static/Target_Cost.png" width="75%"></td>
       <td>If you have a budget but still want to make a buggy, you can! By using the "TARGET COST" input box and click the "Auto Fill Empty Inputs" button,
          you can set an amount for your buggy. However, there is a maximum amount that is found by the program in which will generate an error if you input a value
          which is higher than this amount, so be careful about your input value!</td>
+      <td><img src="static/Target_Cost.png" width="75%"></td>
     </tr>
     <tr>
+      <td><img src="static/Costs_Table.png" width="75%"></td>
       <td>This is the page where all the costs for each item is displayed! These values can be edited by changing the values in the input boxes and then
           by pressing the "Update Costs" button, it will change the costs of the items changed, which will then allow any new buggies created to have the new cost values.
           You can also set the costs back to the default values using the "Set Costs Back To Defaut Values" button.</td>
-      <td><img src="static/Costs_Table.png" width="75%"></td>
     </tr>
   </table>
 </p>
@@ -484,10 +488,13 @@
     <h2>3-FLAG Display the pennant graphically</h2>
     <p class="pLeft"><b>Summary:</b>
       <!-- sentence on _how_ you fixed it -->
-      In the buggy.html, I have created patterns for each of the flags using <code>svg</code> to set the pixel width and height of the flags.
-      I used the <code>rect</code> tag to make rectangle shapes on the flags. I used the <code>polygon points</code> to customise the flags by
-      finding the points needed and by inserting the chosen colours to make the desired pattern. Finally, for the "spot" pattern, I used the <code>circle</code> tag
-      to make circles on the flags.
+      <ul class="pLeft">
+        <li>In the buggy.html, I have created patterns for each of the flags using <code>svg</code> to set the pixel width and height of the flags.
+        <li>Then, I used the <code>rect</code> tag to make rectangle shapes on the flags.
+        <li>I used the <code>polygon points</code> to customise the flags by finding the points needed and by inserting the chosen colours to make the
+            desired pattern.
+        <li>Finally, for the "spot" pattern, I used the <code>circle</code> tag to make circles on the flags.
+      </ul>
     </p>
   </div>
 
